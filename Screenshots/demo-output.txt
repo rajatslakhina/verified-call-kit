@@ -1,0 +1,41 @@
+VerifiedCallKit demo: verify before you retry
+
+=== 1. Twenty transfers, six injected faults: blind retry vs verify-before-retry ===
+key  fault                    blind retry          verify-before-retry
+t03  timeout after commit     charged 2x           charged 1x, recovered (in doubt -> applied at probe 1)
+t07  timeout before commit    charged 1x           charged 1x, succeeded (in doubt -> absent after the settle window (5 probe(s)); succeeded)
+t09  429, then ok             charged 1x           charged 1x, succeeded (retryable: 429 rate limited; succeeded)
+t12  timeout after commit     charged 2x           charged 1x, recovered (in doubt -> applied at probe 1)
+t15  timeout after commit     charged 2x           charged 1x, recovered (in doubt -> applied at probe 1)
+t18  timeout before commit    charged 1x           charged 1x, succeeded (in doubt -> absent after the settle window (5 probe(s)); succeeded)
+blind retry: 23 charges for 20 transfers, $247.50 overcharged
+verified   : 20 charges for 20 transfers, $0.00 overcharged
+verified cost: 13 probes; 3 duplicates avoided, 2 safe redos, 23 performs
+
+=== 2. The write lands on a replica 1.5s late ===
+one immediate probe: succeeded, charged 2x  lookups: t=0.0s  absent
+2s settle window   : recovered, charged 1x  lookups: t=0.0s  absent, t=0.5s  absent, t=1.0s  absent, t=1.5s  found rcpt:late:$42.00
+An absence read before the settle window has passed is not evidence. The window costs
+4 lookups and 1.5s here; believing the first lookup cost a second $42.00 charge.
+
+=== 3. The lookup endpoint is down: what each UnresolvedPolicy does ===
+escalate    server no dedup       -> unresolved charged 1x  attempt 1 is in doubt: probe failed: 503 lookup unavailable
+redoWithKey server dedups by key  -> succeeded  charged 1x  8 lookups failed, then a keyed redo
+redo        server no dedup       -> succeeded  charged 2x  8 lookups failed, then a risked redo
+
+=== 4. reserve -> charge -> receipt, interrupted at the charge ===
+run 1: stopped at step 2, done so far: ["reserve"]
+       attempt 1 is in doubt: probe failed: 503 lookup unavailable
+run 2: complete=true; reserve (already done), charge (already done), receipt (performed)
+plain rerun   : reserve 2x, charge 2x, receipt 1x
+verified rerun: reserve 1x, charge 1x, receipt 1x
+
+=== 5. The service answers 200 OK and drops the write ===
+confirmSuccess=false -> succeeded   receipt rcpt:lost:$25.00, charged 0x, lostWrites=0
+confirmSuccess=true  -> unconfirmed receipt rcpt:lost:$25.00, charged 0x, lostWrites=1
+
+=== Report for scenario 1's verified caller ===
+calls 20, performs 23, probes 13
+succeeded 17, recovered 3, failed 0, unresolved 0
+duplicates avoided 3, late appearances 0, safe redos 2
+probes per duplicate avoided: 4.33

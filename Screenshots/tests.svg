@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="656" height="398" viewBox="0 0 656 398">
+<rect width="656" height="398" rx="10" fill="#0d1117"/>
+<circle cx="20" cy="18" r="6" fill="#ff5f56"/><circle cx="40" cy="18" r="6" fill="#ffbd2e"/><circle cx="60" cy="18" r="6" fill="#27c93f"/>
+<text x="328.0" y="22" text-anchor="middle" font-family="Menlo,monospace" font-size="12" fill="#8b949e">VerifiedCallKit&#160;quality&#160;gates</text>
+<text x="16" y="50" font-family="Menlo,monospace" font-size="12" fill="#79c0ff">$&#160;swift&#160;build</text>
+<text x="16" y="68" font-family="Menlo,monospace" font-size="12" fill="#7ee787">Build&#160;complete!&#160;0&#160;warnings,&#160;0&#160;errors</text>
+<text x="16" y="86" font-family="Menlo,monospace" font-size="12" fill="#c9d1d9">&#160;</text>
+<text x="16" y="104" font-family="Menlo,monospace" font-size="12" fill="#79c0ff">$&#160;swift&#160;test&#160;--enable-code-coverage</text>
+<text x="16" y="122" font-family="Menlo,monospace" font-size="12" fill="#7ee787">Executed&#160;39&#160;tests,&#160;with&#160;0&#160;failures&#160;(0&#160;unexpected)&#160;&#8212;&#160;5&#160;repeated&#160;runs,&#160;all&#160;green</text>
+<text x="16" y="140" font-family="Menlo,monospace" font-size="12" fill="#c9d1d9">&#160;</text>
+<text x="16" y="158" font-family="Menlo,monospace" font-size="12" fill="#79c0ff">$&#160;llvm-cov&#160;report&#160;(library&#160;target)</text>
+<text x="16" y="176" font-family="Menlo,monospace" font-size="12" fill="#7ee787">EffectPlan.swift&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;regions&#160;100.00%&#160;&#160;functions&#160;100.00%&#160;&#160;lines&#160;100.00%&#160;(43/43)</text>
+<text x="16" y="194" font-family="Menlo,monospace" font-size="12" fill="#7ee787">FailureClass.swift&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;regions&#160;100.00%&#160;&#160;functions&#160;100.00%&#160;&#160;lines&#160;100.00%&#160;(7/7)</text>
+<text x="16" y="212" font-family="Menlo,monospace" font-size="12" fill="#7ee787">VerifiableEffect.swift&#160;&#160;&#160;&#160;regions&#160;100.00%&#160;&#160;functions&#160;100.00%&#160;&#160;lines&#160;100.00%&#160;(16/16)</text>
+<text x="16" y="230" font-family="Menlo,monospace" font-size="12" fill="#7ee787">VerificationClock.swift&#160;&#160;&#160;regions&#160;100.00%&#160;&#160;functions&#160;100.00%&#160;&#160;lines&#160;100.00%&#160;(23/23)</text>
+<text x="16" y="248" font-family="Menlo,monospace" font-size="12" fill="#7ee787">VerificationPolicy.swift&#160;&#160;regions&#160;100.00%&#160;&#160;functions&#160;100.00%&#160;&#160;lines&#160;100.00%&#160;(12/12)</text>
+<text x="16" y="266" font-family="Menlo,monospace" font-size="12" fill="#7ee787">VerificationReport.swift&#160;&#160;regions&#160;100.00%&#160;&#160;functions&#160;100.00%&#160;&#160;lines&#160;100.00%&#160;(46/46)</text>
+<text x="16" y="284" font-family="Menlo,monospace" font-size="12" fill="#7ee787">VerifiedCaller.swift&#160;&#160;&#160;&#160;&#160;&#160;regions&#160;100.00%&#160;&#160;functions&#160;100.00%&#160;&#160;lines&#160;100.00%&#160;(162/162)</text>
+<text x="16" y="302" font-family="Menlo,monospace" font-size="12" fill="#7ee787">VerifiedOutcome.swift&#160;&#160;&#160;&#160;&#160;regions&#160;100.00%&#160;&#160;functions&#160;100.00%&#160;&#160;lines&#160;100.00%&#160;(73/73)</text>
+<text x="16" y="320" font-family="Menlo,monospace" font-size="12" fill="#7ee787">TOTAL&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;regions&#160;100.00%&#160;&#160;functions&#160;100.00%&#160;&#160;lines&#160;100.00%&#160;(382/382)</text>
+<text x="16" y="338" font-family="Menlo,monospace" font-size="12" fill="#c9d1d9">&#160;</text>
+<text x="16" y="356" font-family="Menlo,monospace" font-size="12" fill="#79c0ff">$&#160;swiftlint&#160;lint&#160;--strict&#160;&#160;&#160;(SwiftLint&#160;0.63.2)</text>
+<text x="16" y="374" font-family="Menlo,monospace" font-size="12" fill="#7ee787">Done&#160;linting!&#160;Found&#160;0&#160;violations,&#160;0&#160;serious&#160;in&#160;11&#160;files.</text>
+</svg>
